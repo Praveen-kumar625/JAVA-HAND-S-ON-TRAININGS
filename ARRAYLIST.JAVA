@@ -53,3 +53,58 @@ class student implements Comparable<student>
     }
 
 }
+
+*/
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+class student {
+    String name;
+    int roll;
+    
+
+    public student(String name, int roll) {
+        this.name = name;
+        this.roll = roll;
+    }
+    class NameSorted implements Comparator<student> {
+        public int compare(student s1, student s2) {
+            return s1.name.compareTo(s2.name);
+        }
+    }
+        class hello {
+            public static void main(String[] args) {
+                ArrayList<student> list = new ArrayList<>();
+                list.add(new student("ram", 1));
+                list.add(new student("shyam", 2));
+                list.add(new student("mohan", 3));
+                System.out.println(list);
+                Collections.sort(list, new student().new NameSorted());
+               for(student s:list)
+                {
+                  System.out.println(s.name+" "+s.roll);
+                }
+            }
+        }
+        class RollSorted implements Comparator<student> {
+            public int compare(student s1, student s2) {
+                return s1.roll - s2.roll;
+            }
+        }
+        class hello {
+            public static void main(String[] args) {
+                ArrayList<student> list = new ArrayList<>();
+                list.add(new student("ram", 1));
+                list.add(new student("shyam", 2));
+                list.add(new student("mohan", 3));
+                System.out.println(list);
+                Collections.sort(list, new student().new RollSorted());
+               for(student s:list)
+                {
+                  System.out.println(s.name+" "+s.roll);
+                }
+            }
+        }
+    }
+}
